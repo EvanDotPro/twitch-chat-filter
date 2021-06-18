@@ -1,0 +1,11 @@
+{
+    "name": "Twitch Chat Filter",
+    "version": "0.1.0",
+    "description": "Filter out useless messages from Twitch chats.",
+    "content_scripts": [{
+        "matches": ["https://www.twitch.tv/*"],
+        "js": ["thirdParty/jquery-3.4.1.min.js", "thirdParty/arrive-2.4.1.min.js", "content.js"],
+        "run_at": "document_end"
+    }],
+    "manifest_version": 2
+}
