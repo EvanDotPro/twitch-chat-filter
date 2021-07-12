@@ -4,7 +4,7 @@
     "description": "Filter out useless messages from Twitch chats.",
     "content_scripts": [{
         "matches": ["https://www.twitch.tv/*"],
-        "js": ["thirdParty/jquery-3.4.1.min.js", "thirdParty/arrive-2.4.1.min.js", "content.js"],
+        "js": ["thirdParty/jquery-3.6.0.js", "thirdParty/arrive-2.4.1.js", "content.js"],
         "run_at": "document_end"
     }],
     "manifest_version": 2
