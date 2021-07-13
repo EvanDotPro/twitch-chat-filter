@@ -20,21 +20,36 @@ function onlyUnique(value, index, self) {
 }
 
 // Remove single word or emote-only messages
-document.arrive(".chat-line__message", function() {
+document.arrive('.chat-line__message', function() {
     var $msgElem = $(this);
-    var msgWords = $msgElem.text().trim().toLowerCase().split(" ").filter(onlyUnique);
+    var msgText  = $msgElem.text().trim().toLowerCase();
+    var msgWords = msgText.split(' ').filter(onlyUnique);
     if(msgWords.length <= 2 || msgWords[0] === 'boga_bot:') {
         $msgElem.hide();
-        console.log($msgElem.text().trim());
+    }
+});
+
+// Remove single word or emote-only messages from vod chats
+document.arrive('.vod-message > div:nth-child(2)', function() {
+    var $msgElem = $(this);
+    var msgText  = $msgElem.text().replace(/:/, ': ').trim().toLowerCase();
+    var msgWords = msgText.split(' ').filter(onlyUnique);
+    if(msgWords.length <= 2 || msgWords[0] === 'boga_bot:') {
+        $msgElem.parent().parent().hide();
     }
 });
 
 // Hide subs / resubs
-document.arrive(".user-notice-line", function() {
+document.arrive('.user-notice-line', function() {
     $(this).hide();
 });
 
+// Hide subs / resubs on vod
+document.arrive('.vod-message--user-notice', function() {
+    $(this).parent().hide();
+});
+
 // Hide stupid leaderboard thing above chat
-document.arrive(".channel-leaderboard", function() {
+document.arrive('.channel-leaderboard', function() {
     $(this).hide();
 });
