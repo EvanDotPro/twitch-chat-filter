@@ -1,6 +1,6 @@
 {
     "name": "Twitch Chat Filter",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "description": "Filter out useless messages from Twitch chats.",
     "content_scripts": [{
         "matches": ["https://www.twitch.tv/*"],
